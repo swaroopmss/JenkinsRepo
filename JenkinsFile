@@ -1,5 +1,6 @@
 pipeline {
     agent any
+	PATH = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
     stages {
         stage('Clone') {
             steps {
@@ -8,16 +9,19 @@ pipeline {
         }
         stage('Build') {
             steps {
+				echo 'Building the project...'
                 sh 'Building the project...'
             }
         }
         stage('Test') {
             steps {
+				echo 'Running tests...'
                 sh 'Running tests...'
             }
         }
         stage('Deploy') {
             steps {
+				echo 'Deploying...'
                 sh 'Deploying...'
             }
         }
